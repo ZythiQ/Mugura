@@ -1,5 +1,5 @@
 # Mugura
-**Text Formatting:
+**Text Formatting:**
 ```
 Alt+u = Upper cases the selected text                     ('abc def' > 'ABC DEF')
 Alt+l = Lower cases the selected text                     ('Abc DeF' > 'abc def')
@@ -9,13 +9,13 @@ Alt+t = Title cases the selected text                     ('abc and def: ghi' > 
 Alt+q = Fixes quote formatting                            ('"abc, "def""' > '"abc, 'def'"')
 Alt+n = Fixes number formatting                           ('1,12235,21' > '11,223,521')
 ```
-**Text Wrapping:
+**Text Wrapping:**
 ```
 Ctrl+Shft+w = Input a symbol to wrap the selected text    ('Selected text' > input = '+' > '+Selected text+')
 Ctrl+w      = Repeated the previous wrap                  ('Selected text' > '+Selected text+')
 ALT+w       = Removes outer wrap on the selected text     ('++Selected text++' > '+Selected text+')
 ```
-**Quick-wraps:
+**Quick-wraps:**
 ```
 Ctrl+{      =    {selected text}
 Ctrl+\[     =    [selected text]
@@ -27,7 +27,7 @@ Ctrl+'      =    'selected text'
 Ctrl+Alt+"  =    “selected text”
 Ctrl+Alt+'  =    ‘selected text’
 ```
-**Clipboard / Pathfinder / Text Selection:
+**Clipboard / Pathfinder / Text Selection:**
 ```
 Ctrl+Shft+c = Copies the open folder/selected file/website's path/URL into the clipboard
 Ctrl+Wnd+c  = Copies the active window's path to the clipboard
