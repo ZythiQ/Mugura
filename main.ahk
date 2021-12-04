@@ -43,6 +43,7 @@ $^[::wrapSel(91)
 ^%::wrapSel(37)
 ^_::wrapSel(95)
 
+^"::wrapSel(34, False)
 ^'::wrapSel(39, False)
 ^!"::wrapSel(34)
 ^!'::wrapSel(39)
