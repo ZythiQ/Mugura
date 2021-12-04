@@ -11,21 +11,22 @@ Alt+n = Fixes number formatting                           ('1,12235,21' > '11,22
 ```
 **Text Wrapping:**
 ```
-Ctrl+Shft+w = Input a symbol to wrap the selected text    ('Selected text' > input = '+' > '+Selected text+')
+Ctrl+Shft+w = Input a symbol to wrap the selected text    (input = '+') ('Selected text' > '+Selected text+')
 Ctrl+w      = Repeated the previous wrap                  ('Selected text' > '+Selected text+')
 ALT+w       = Removes outer wrap on the selected text     ('++Selected text++' > '+Selected text+')
 ```
 **Quick-wraps:**
 ```
-Ctrl+{      =    {selected text}
-Ctrl+\[     =    [selected text]
-Ctrl+(      =    (selected text)
-Ctrl+%      =    %selected text%
+Ctrl+{      =    {Selected text}
+Ctrl+[      =    [Selected text]
+Ctrl+(      =    (Selected text)
+Ctrl+%      =    %Selected text%
+Ctrl+_      =    __Selected text__
 
-Ctrl+"      =    "selected text"
-Ctrl+'      =    'selected text'
-Ctrl+Alt+"  =    “selected text”
-Ctrl+Alt+'  =    ‘selected text’
+Ctrl+"      =    "Selected text"
+Ctrl+'      =    'Selected text'
+Ctrl+Alt+"  =    “Selected text”
+Ctrl+Alt+'  =    ‘Selected text’
 ```
 **Clipboard / Pathfinder / Text Selection:**
 ```
