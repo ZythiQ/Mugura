@@ -1,0 +1,25 @@
+ a
+about
+above
+after
+an
+and
+at
+before
+but
+by
+for
+from
+nor
+of
+on
+or
+so
+the
+till
+to
+via
+with
+within
+without
+yet

@@ -11,6 +11,7 @@ SendMode Input
 
 ; Initializing Variables:
 
+fileRead, excludeCase, resources\titleCaseExclude.txt
 wraps := {40:"()", 60:"<>", 91:"[]", 95:"____", 123:"{}"}
 smartQuotes := False
 reSelect := True
