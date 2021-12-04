@@ -11,9 +11,9 @@ Alt+n = Fixes number formatting                           ('1,12235,21' > '11,22
 ```
 **Text Wrapping:**
 ```
-Ctrl+Shft+w = Input a symbol to wrap the selected text    (input = '+') ('Selected text' > '+Selected text+')
-Ctrl+w      = Repeated the previous wrap                  ('Selected text' > '+Selected text+')
-ALT+w       = Removes outer wrap on the selected text     ('++Selected text++' > '+Selected text+')
+Ctrl+Shft+w = Input a symbol to wrap the selected text    (input = '_') ('abc' > '_abc_')
+Ctrl+w      = Repeated the previous wrap                  ('abc' > '_abc_')
+ALT+w       = Removes outer wrap on the selected text     ('__abc__' > '_abc_')
 ```
 **Quick-wraps:**
 ```
