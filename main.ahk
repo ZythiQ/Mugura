@@ -22,6 +22,7 @@ precise := True
 ^+c::getPath()
 ^#c::getActivePath()
 ^+g::searchSel()
+^+z::swapSel()
 
 ^+w::wrapSel("select", smartQuotes)
 ^w::wrapSel("repeat", smartQuotes)
