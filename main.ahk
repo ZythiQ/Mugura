@@ -142,7 +142,7 @@ wrapSel(type){
         rKey := (wraps[Key]) ? subStr(wraps[key], (strLen(wraps[key])/2)+1) : lKey
 
 		; Fix quotes to prefered version:
-		if (key ~= "257|258")) {
+		if (key ~= "257|258") {
 			lKey := (key == 257) ? "“" : "‘"
 			rKey := (key == 257) ? "”" : "’"
 		}
