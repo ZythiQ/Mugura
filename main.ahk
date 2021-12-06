@@ -12,6 +12,7 @@ SendMode Input
 ; Initializing Variables:
 
 fileRead, excludeCase, resources\titleCaseExclude.txt
+chromePath := "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
 wraps := {40:"()", 60:"<>", 91:"[]", 95:"____", 123:"{}"}
 smartQuotes := False
 reSelect := True
@@ -24,8 +25,8 @@ precise := True
 ^+g::searchSel()
 ^+z::swapSel()
 
-^+w::wrapSel("select", smartQuotes)
-^w::wrapSel("repeat", smartQuotes)
+^+w::wrapSel("select")
+^w::wrapSel("repeat")
 !w::wrapSel("remove")
 
 !p::formatSel("pasteTest")
@@ -44,10 +45,10 @@ $^[::wrapSel(91)
 ^%::wrapSel(37)
 ^_::wrapSel(95)
 
-^"::wrapSel(34, False)
-^'::wrapSel(39, False)
-^!"::wrapSel(34)
-^!'::wrapSel(39)
+^"::wrapSel(34)
+^'::wrapSel(39)
+^!"::wrapSel(257)
+^!'::wrapSel(258)
 
 ; Personal Hotkeys:
 
@@ -116,8 +117,8 @@ formatSel(type) {
 
 }
 
-wrapSel(type, smartQuotes=True){
-    global wraps, key
+wrapSel(type){
+    global smartQuotes, wraps, key
     if (copySel()){
         switch type {
             case "select":
@@ -141,22 +142,21 @@ wrapSel(type, smartQuotes=True){
         rKey := (wraps[Key]) ? subStr(wraps[key], (strLen(wraps[key])/2)+1) : lKey
 
 		; Fix quotes to prefered version:
-		if (smartQuotes and key ~= "34|39") {
-			lKey := (key == 34) ? "“" : "‘"
-			rKey := (key == 34) ? "”" : "’"
+		if (key ~= "257|258" or (smartQuotes and key ~= "34|39")) {
+			lKey := (key ~= "34|257") ? "“" : "‘"
+			rKey := (key ~= "34|257") ? "”" : "’"
 		}
         pasteSel(lKey . clipboard . rKey)
     } else clipboard := tmp
 }
 
 searchSel() {
-	global tmp
+	global tmp, chromePath
 	if (copySel()) {
 		if (IsURL(clipboard) or FileExist(clipboard))
 			run %clipboard%
 		else
-			run "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" -incognito "http://www.google.com/search?q=%clipboard%"
-			; run https://www.google.com/search?q=%clipboard%
+			run %chromePath% -incognito "http://www.google.com/search?q=%clipboard%"
 	}  clipboard := tmp
 }
 
