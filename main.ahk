@@ -103,7 +103,7 @@ formatSel(type) {
 				if (clipboard ~= "^[""“‘'](.*)[""'’”]$") {
 					txt := regexReplace(clipboard, """(.*)""", "“$1”")
 					txt := regexReplace(txt, "(?<=\s|[“‘'])[""“'](?!$)", "‘")
-					txt := regexReplace(txt, "(?<!^|\d)[""”'](?=\s|[”’'])", "’")
+					txt := regexReplace(txt, "(?<!^|\d)[""”'](?!$)", "’")
 					if (!smartQuotes) {
 						txt := regexReplace(txt, "[“”]", """")
 						txt := regexReplace(txt, "[‘’]", "'")
@@ -118,7 +118,7 @@ formatSel(type) {
 }
 
 wrapSel(type){
-    global smartQuotes, wraps, key
+    global wraps, key
     if (copySel()){
         switch type {
             case "select":
@@ -142,9 +142,9 @@ wrapSel(type){
         rKey := (wraps[Key]) ? subStr(wraps[key], (strLen(wraps[key])/2)+1) : lKey
 
 		; Fix quotes to prefered version:
-		if (key ~= "257|258" or (smartQuotes and key ~= "34|39")) {
-			lKey := (key ~= "34|257") ? "“" : "‘"
-			rKey := (key ~= "34|257") ? "”" : "’"
+		if (key ~= "257|258")) {
+			lKey := (key == 257) ? "“" : "‘"
+			rKey := (key == 257) ? "”" : "’"
 		}
         pasteSel(lKey . clipboard . rKey)
     } else clipboard := tmp
