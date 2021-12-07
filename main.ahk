@@ -29,7 +29,7 @@ precise := True
 ^w::wrapSel("repeat")
 !w::wrapSel("remove")
 
-!p::formatSel("pasteTest")
+; !p::formatSel("pasteTest")
 !u::formatSel("upperCase")
 !l::formatSel("lowerCase")
 !f::formatSel("firstCase")
