@@ -1,13 +1,13 @@
 # Mugura
 **Text Formatting:**
 
-<kbd>Alt</kbd> + <kbd>u</kbd> Upper cases selected text
-<kbd>Alt</kbd> + <kbd>l</kbd> Lower cases selected text
-<kbd>Alt</kbd> + <kbd>t</kbd> Title cases selected text
-<kbd>Alt</kbd> + <kbd>s</kbd> Sentence cases selected text
-<kbd>Alt</kbd> + <kbd>f</kbd> Title cases selected text (Greedy)
-<kbd>Alt</kbd> + <kbd>q</kbd> Fixes improper quote formatting (Uses straight quotes unless <kbd>q</kbd> is pressed <kbd>twice</kbd>, then uses curly quotes)
-<kbd>Alt</kbd> + <kbd>n</kbd> Removes excess symbols in integers and trailing zeroes in floats (Formats integers with commas and rounds floats if <kbd>n</kbd> is pressed <kbd>twice</kbd>)
+<kbd>Alt</kbd> + <kbd>u</kbd> Upper cases selected text  
+<kbd>Alt</kbd> + <kbd>l</kbd> Lower cases selected text  
+<kbd>Alt</kbd> + <kbd>t</kbd> Title cases selected text  
+<kbd>Alt</kbd> + <kbd>s</kbd> Sentence cases selected text  
+<kbd>Alt</kbd> + <kbd>f</kbd> Title cases selected text (Greedy)  
+<kbd>Alt</kbd> + <kbd>q</kbd> Fixes improper quote formatting (Uses straight quotes unless <kbd>q</kbd> is pressed <kbd>twice</kbd>, then uses curly quotes)  
+<kbd>Alt</kbd> + <kbd>n</kbd> Removes excess symbols in integers and trailing zeroes in floats (Formats integers with commas and rounds floats if <kbd>n</kbd> is pressed <kbd>twice</kbd>)  
 
 
 
