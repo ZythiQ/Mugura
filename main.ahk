@@ -46,13 +46,13 @@ $^[::wrapSel(91)
 ^%::wrapSel(37)
 ^_::wrapSel(95)
 
-; ^+'::mPress(func("wrapSel").bind(34), func("wrapSel").bind(257))
-; ^'::mPress(func("wrapSel").bind(39), func("wrapSel").bind(258))
+^+'::mPress(func("wrapSel").bind(34), func("wrapSel").bind(257))
+^'::mPress(func("wrapSel").bind(39), func("wrapSel").bind(258))
 
-^"::wrapSel(34)
-^'::wrapSel(39)
-^!"::wrapSel(257)
-^!'::wrapSel(258)
+; ^"::wrapSel(34)
+; ^'::wrapSel(39)
+; ^!"::wrapSel(257)
+; ^!'::wrapSel(258)
 
 ; Personal Hotkeys:
 
