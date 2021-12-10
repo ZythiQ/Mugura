@@ -20,7 +20,7 @@
 <kbd>Ctrl</kbd> + <kbd>[</kbd> -> <kbd>[Text]</kbd>  
 <kbd>Ctrl</kbd> + <kbd>(</kbd> -> <kbd>(Text)</kbd>  
 <kbd>Ctrl</kbd> + <kbd>%</kbd> -> <kbd>%Text%</kbd>  
-<kbd>Ctrl</kbd> + <kbd>_</kbd> -> <kbd>__Text__</kbd>  
+<kbd>Ctrl</kbd> + <kbd>_</kbd> -> <kbd>\__Text\__</kbd>  
 
 **Clipboard / Pathfinder / Text Selection:**  
 <kbd>Ctrl</kbd> + <kbd>Win</kbd> + <kbd>c</kbd> Copies the active window's file path  
