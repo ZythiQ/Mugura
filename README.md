@@ -1,5 +1,21 @@
 # Mugura
 **Text Formatting:**
+<kbd>Alt</kbd> + <kbd>u</kbd> | Upper cases the selected text
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ```
 Alt+u = Upper cases the selected text                     ('abc def' > 'ABC DEF')
 Alt+l = Lower cases the selected text                     ('Abc DeF' > 'abc def')
