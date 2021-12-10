@@ -1,6 +1,7 @@
 # Mugura
 **Text Formatting:**
-<kbd>Alt</kbd> + <kbd>u</kbd> | Upper cases the selected text
+
+<kbd>Alt</kbd> + <kbd>u</kbd> - Upper cases the selected text
 
 
 
