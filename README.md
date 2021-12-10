@@ -6,7 +6,7 @@
 <kbd>Alt</kbd> + <kbd>s</kbd> Sentence cases selected text  
 <kbd>Alt</kbd> + <kbd>f</kbd> Indiscriminately title cases selected text (Prefix with <kbd>Ctrl</kbd> to capitalize only the first character per newline)  
 <kbd>Alt</kbd> + <kbd>q</kbd> Fixes improper quote formatting (Uses curly quotes if <kbd>q</kbd> is pressed <kbd>twice</kbd>)  
-<kbd>Alt</kbd> + <kbd>n</kbd> Cleans integers and removes trailing zeroes in floats (Formats integers with commas and rounds floats if <kbd>n</kbd> is pressed <kbd>twice</kbd>)  
+<kbd>Alt</kbd> + <kbd>n</kbd> Cleans integers and removes trailing zeroes in floats (Showcase formats numbers if <kbd>n</kbd> is pressed <kbd>twice</kbd>)  
 
 **Text Wrapping:**  
 <kbd>Ctrl</kbd> + <kbd>Shft</kbd> + <kbd>w</kbd> Wraps selected text in an inputted symbol (e.g, <kbd>&</kbd>)  
