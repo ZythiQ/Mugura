@@ -12,6 +12,7 @@ SendMode Input
 ; Initializing Variables:
 
 fileRead, excludeCase, resources\titleCaseExclude.txt
+
 chromePath := "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
 wraps := {40:"()", 60:"<>", 91:"[]", 95:"____", 123:"{}"}
 smartQuotes := False
@@ -96,7 +97,7 @@ formatSel(type) {
 			case "fixNumber":
 				if (clipboard ~= "^[0-9,.]*$") {
 				txt := regexReplace(clipboard, ",")
-				txt := regexReplace(txt, "\G\d+?(?=(\d{3})+(?:\D|$))", "$0,")
+				txt := (txt ~= "\.") ? RTrim(RTrim(Round(txt, 6),"0"),".") : regexReplace(txt, "\G\d+?(?=(\d{3})+(?:\D|$))", "$0,")
 				}
 
 			case "fixQuotes":
@@ -317,4 +318,29 @@ endProcs() {
 			soundPlay, %A_WinDir%\Media\Windows Balloon.wav
 		}
 	}
+}
+
+; Miscellaneous:
+
+mPress(pressHandlers*) {
+	; From http://autohotkey.com/boards/viewtopic.php?t=40161 refactored by ZythiQ
+	recurse:
+	keyPresses += 1
+	strippedHotkey := stripHotkey(A_ThisHotkey)
+	keyWait, %strippedHotkey%
+	keyWait, %strippedHotkey%, D T.12 ; Wait for same KeyDown or 0.12 seconds to elapse.
+	if (!ErrorLevel)
+		goto recurse
+
+	; Ensuring that the handler is a function object, and if not making it one or returning nothing:
+	hf := pressHandlers[keyPresses]
+	if (!IsObject(hf))
+		hf := Func(hf)
+	return hf ? hf.Call() : ""
+}
+
+stripHotkey(hk) {
+	; From https://autohotkey.com/board/topic/32973-func-waitthishotkey/
+	regExMatch(hk, "i)(?:[~#!<>\*\+\^\$]*([^ ]+)( UP)?)$", key)
+	return key1, ErrorLevel := (key2 ? "Down" : "Up")
 }
