@@ -299,13 +299,6 @@ pushToast(title, toast, hexCode, iconName="brackets") {
 	DllCall("AnimateWindow","UInt",guiID,"Int",100,"UInt",hexCode)
 }
 
-; Initializing Functions: CURRENTLY UNUSED
-
-iniStore(fileName, section) {
-	iniRead, var, %fileName%.ini, %section%
-	return object(strSplit(var, ["=", "`n"])*)
-}
-
 ; Script Control:
 
 endProcs() {
