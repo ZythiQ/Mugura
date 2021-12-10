@@ -37,14 +37,17 @@ precise := True
 ^!f::formatSel("firstOnly")
 !s::formatSel("sentnCase")
 !t::formatSel("titleCase")
-!n::formatSel("fixNumber")
-!q::formatSel("fixQuotes")
+!q::mPress(func("formatSel").bind("fixQuotes"), func("formatSel").bind("fixQuotes", 1))
+!n::mPress(func("formatSel").bind("fixNumber"), func("formatSel").bind("fixNumber", 1))
 
 ^{::wrapSel(123)
 $^[::wrapSel(91)
 ^(::wrapSel(40)
 ^%::wrapSel(37)
 ^_::wrapSel(95)
+
+; ^+'::mPress(func("wrapSel").bind(34), func("wrapSel").bind(257))
+; ^'::mPress(func("wrapSel").bind(39), func("wrapSel").bind(258))
 
 ^"::wrapSel(34)
 ^'::wrapSel(39)
@@ -78,8 +81,8 @@ return
 
 ; Clipboard Functions:
 
-formatSel(type) {
-	global excludeCase, smartQuotes
+formatSel(type, modifier=0) {
+	global excludeCase
 	if (copySel()) {
 		switch (type) {
 			case "upperCase": txt := format("{:U}", clipboard)
@@ -96,26 +99,25 @@ formatSel(type) {
 
 			case "fixNumber":
 				if (clipboard ~= "^[0-9,.]*$") {
-				txt := regexReplace(clipboard, ",")
-				txt := (txt ~= "\.") ? RTrim(RTrim(Round(txt, 6),"0"),".") : regexReplace(txt, "\G\d+?(?=(\d{3})+(?:\D|$))", "$0,")
+					txt := regexReplace(clipboard, ",")
+					txt := (txt ~= "\.") ? RTrim(RTrim(modifier ? Round(txt, 6) : txt,"0"),".") : modifier ? regexReplace(txt, "\G\d+?(?=(\d{3})+(?:\D|$))", "$0,") : txt
 				}
 
 			case "fixQuotes":
-				if (clipboard ~= "^[""“‘'](.*)[""'’”]$") {
-					txt := regexReplace(clipboard, """(.*)""", "“$1”")
-					txt := regexReplace(txt, "(?<=\s|[“‘'])[""“'](?!$)", "‘")
-					txt := regexReplace(txt, "(?<!^|\d)[""”'](?!$)", "’")
-					if (!smartQuotes) {
-						txt := regexReplace(txt, "[“”]", """")
-						txt := regexReplace(txt, "[‘’]", "'")
-					}
-				} else return
+                if (clipboard ~= "^[""“‘'](.*)[""'’”]$") {
+                    txt := regexReplace(clipboard, """(.*)""", "“$1”")
+                    txt := regexReplace(txt, "(?<=\s|[“‘'])[""“'](?!$)", "‘")
+                    txt := regexReplace(txt, "(?<!^|\d)[""”'](?!$)", "’")
+                    if (!modifier) {
+                        txt := regexReplace(txt, "[“”]", """")
+                        txt := regexReplace(txt, "[‘’]", "'")
+                    }
+                } else return
 
 			default: txt := clipboard
 		}
 		pasteSel(txt)
 	} else clipboard := tmp
-
 }
 
 wrapSel(type){
@@ -192,7 +194,7 @@ pasteSel(txt) {
 	sleep 25
 	winGetTitle, winTitle, A
 
-	; Docs adds a newline if the paste contains one... {BS} to remove  it.
+	; Docs adds a newline if the paste contains one... backspace to remove it.
 	if (txt ~= "\R" and winTitle ~= "Google (Docs|Slides)")
 		send {BS}
 
@@ -209,7 +211,7 @@ pasteSel(txt) {
 			; Send for speed methods:
 			send  % "{control down}{shift down}{left "strLen(regexReplace(txt, "\s"))"}{control up}{shift up}"
 
-		; Slow but precise "shift + {left}" method:
+		; Slow but precise "Shift + {left}" method:
 		} else	send % "+{left "strLen(regexReplace(txt, "\R", "+"))"}"
 	}
 	; Refresh the clipboard:
@@ -316,7 +318,7 @@ endProcs() {
 ; Miscellaneous:
 
 mPress(pressHandlers*) {
-	; From http://autohotkey.com/boards/viewtopic.php?t=40161 refactored by ZythiQ
+	; Modified from: http://autohotkey.com/boards/viewtopic.php?t=40161
 	recurse:
 	keyPresses += 1
 	strippedHotkey := stripHotkey(A_ThisHotkey)
@@ -333,7 +335,7 @@ mPress(pressHandlers*) {
 }
 
 stripHotkey(hk) {
-	; From https://autohotkey.com/board/topic/32973-func-waitthishotkey/
+	; From: https://autohotkey.com/board/topic/32973-func-waitthishotkey/
 	regExMatch(hk, "i)(?:[~#!<>\*\+\^\$]*([^ ]+)( UP)?)$", key)
 	return key1, ErrorLevel := (key2 ? "Down" : "Up")
 }
