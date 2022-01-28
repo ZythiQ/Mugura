@@ -25,6 +25,7 @@ precise := True
 ^#c::getActivePath()
 ^+g::searchSel()
 ^+z::swapSel()
+!c::countSel()
 
 ^+w::wrapSel("select")
 ^w::wrapSel("repeat")
@@ -60,6 +61,7 @@ $^[::wrapSel(91)
 ^XButton1::sendInput !{Esc}
 !Left::sendInput ^[
 !Right::sendInput ^]
+#c::checkToConnect("RIT")
 
 ^+!Home::reload
 ^+!Ins::suspend
@@ -168,6 +170,16 @@ swapSel() {
 	if (selected := copySel()) {
 		pasteSel(tmp)
 		clipboard := selected
+	} else clipboard := tmp
+}
+
+countSel() {
+	tmp := clipboard
+	if (selected := copySel()) {
+		regexReplace(clipboard, ".*?[a-zA-Z-'’‘]+" ,, alphaCount, -1, 1)
+		regexReplace(clipboard, ".*?[\w-'’‘]+" ,, alphaNumCount, -1, 1)
+		toolTip % alphaCount " words`n" alphaNumCount " w/ numbers`n" strLen(clipboard) " characters`n" strLen(StrReplace(clipboard, " ")) " w/o spaces"
+		setTimer, RemoveToolTip, -1500
 	} else clipboard := tmp
 }
 
@@ -301,6 +313,10 @@ pushToast(title, toast, hexCode, iconName="brackets") {
 	DllCall("AnimateWindow","UInt",guiID,"Int",100,"UInt",hexCode)
 }
 
+RemoveToolTip:
+ToolTip
+return
+
 ; Script Control:
 
 endProcs() {
@@ -338,4 +354,18 @@ stripHotkey(hk) {
 	; From: https://autohotkey.com/board/topic/32973-func-waitthishotkey/
 	regExMatch(hk, "i)(?:[~#!<>\*\+\^\$]*([^ ]+)( UP)?)$", key)
 	return key1, ErrorLevel := (key2 ? "Down" : "Up")
+}
+
+checkToConnect(adapter, nType = "WLAN", url = "http://google.com") {
+	if (!ping()) {
+		runwait, % comspec  " /c Netsh " nType " connect name=" adapter
+		soundPlay, %A_WinDir%\Media\Windows Balloon.wav
+	} else
+		soundPlay, %A_WinDir%\Media\Windows Background.wav
+}
+
+ping(host="8.8.8.8") { ; default pings Google DNS
+	colPings := ComObjGet("winmgmts:").ExecQuery("Select * From Win32_PingStatus where Address = '" host "'")._NewEnum
+	while colPings[objStatus]
+		return oS := (objStatus.StatusCode = "") || (objStatus.StatusCode != 0) ? 0 : 1
 }
