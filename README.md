@@ -4,9 +4,9 @@
 <kbd>Alt</kbd> + <kbd>l</kbd> Lower cases selected text  
 <kbd>Alt</kbd> + <kbd>t</kbd> Title cases selected text  
 <kbd>Alt</kbd> + <kbd>s</kbd> Sentence cases selected text  
-<kbd>Alt</kbd> + <kbd>f</kbd> Indiscriminately title cases selected text (Modify with <kbd>Ctrl</kbd> to first case only the first characters in each newline)
-<kbd>Alt</kbd> + <kbd>q</kbd> Fixes improper quote formatting (Uses straight quotes unless <kbd>q</kbd> is pressed <kbd>twice</kbd>, then uses curly quotes)  
-<kbd>Alt</kbd> + <kbd>n</kbd> Removes excess symbols in integers and trailing zeroes in floats (Formats integers with commas and rounds floats if <kbd>n</kbd> is pressed <kbd>twice</kbd>)  
+<kbd>Alt</kbd> + <kbd>f</kbd> Indiscriminately title cases selected text (Prefix with <kbd>Ctrl</kbd> to capitalize only the first character per newline)  
+<kbd>Alt</kbd> + <kbd>n</kbd> Cleans integers and removes trailing zeroes in floats (Showcase formats numbers if <kbd>n</kbd> is pressed <kbd>twice</kbd>)  
+<kbd>Alt</kbd> + <kbd>q</kbd> Fixes improper quote formatting (Uses curly quotes if <kbd>q</kbd> is pressed <kbd>twice</kbd>)  
 
 **Text Wrapping:**  
 <kbd>Ctrl</kbd> + <kbd>Shft</kbd> + <kbd>w</kbd> Wraps selected text in an inputted symbol (e.g, <kbd>&</kbd>)  
@@ -14,13 +14,13 @@
 <kbd>Alt</kbd> + <kbd>w</kbd> Removes the outter wrap of selected text  
 
 **Quick-wraps:**  
-<kbd>Ctrl</kbd> + <kbd>"</kbd> -> <kbd>"Text"</kbd> (Uses curly quotes if <kbd>"</kbd> is pressed <kbd>twice</kbd>)  
-<kbd>Ctrl</kbd> + <kbd>'</kbd> -> <kbd>'Text'</kbd> (Uses curly quotes if <kbd>'</kbd> is pressed <kbd>twice</kbd>)  
-<kbd>Ctrl</kbd> + <kbd>{</kbd> -> <kbd>{Text}</kbd>  
-<kbd>Ctrl</kbd> + <kbd>[</kbd> -> <kbd>[Text]</kbd>  
-<kbd>Ctrl</kbd> + <kbd>(</kbd> -> <kbd>(Text)</kbd>  
-<kbd>Ctrl</kbd> + <kbd>%</kbd> -> <kbd>%Text%</kbd>  
-<kbd>Ctrl</kbd> + <kbd>_</kbd> -> <kbd>\_\_Text\_\_</kbd>  
+<kbd>Ctrl</kbd> + <kbd>"</kbd> = <kbd>"Text"</kbd> (Uses curly quotes if <kbd>"</kbd> is pressed <kbd>twice</kbd>)  
+<kbd>Ctrl</kbd> + <kbd>'</kbd> = <kbd>'Text'</kbd> (Uses curly quotes if <kbd>'</kbd> is pressed <kbd>twice</kbd>)  
+<kbd>Ctrl</kbd> + <kbd>{</kbd> = <kbd>{Text}</kbd>  
+<kbd>Ctrl</kbd> + <kbd>[</kbd> = <kbd>[Text]</kbd>  
+<kbd>Ctrl</kbd> + <kbd>(</kbd> = <kbd>(Text)</kbd>  
+<kbd>Ctrl</kbd> + <kbd>%</kbd> = <kbd>%Text%</kbd>  
+<kbd>Ctrl</kbd> + <kbd>_</kbd> = <kbd>\_\_Text\_\_</kbd>  
 
 **Clipboard / Pathfinder / Text Selection:**  
 <kbd>Ctrl</kbd> + <kbd>Win</kbd> + <kbd>c</kbd> Copies the active window's file path  
