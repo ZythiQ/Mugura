@@ -28,3 +28,7 @@
 <kbd>Ctrl</kbd> + <kbd>Shft</kbd> + <kbd>g</kbd> Opens any selected URL/file path and searches anything else on Google with Incognito mode  
 <kbd>Ctrl</kbd> + <kbd>Shft</kbd> + <kbd>z</kbd> Swaps the clipboard and selected text  
 <kbd>Ctrl</kbd> + <kbd>Shft</kbd> + <kbd>k</kbd> Quickly embeds selected text if a valid link is in the clipboard  
+<kbd>Alt</kbd> + <kbd>c</kbd> Displays the word, alphanumeric, character, and characters w/o spaces count
+
+**Miscellaneous:**
+<kbd>Win</kbd> + <kbd>c</kbd> Checks internet connection and connects if offline
