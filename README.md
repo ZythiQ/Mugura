@@ -31,4 +31,4 @@
 
 **Miscellaneous:**  
 <kbd>Win</kbd> + <kbd>c</kbd> Checks internet connection and connects if offline  
-<kbd>Alt</kbd> + <kbd>c</kbd> Displays the word, alphanumeric, character, and characters w/o spaces count  
+<kbd>Alt</kbd> + <kbd>c</kbd> Displays word, alphanumeric, character, and characters w/o spaces counts of the selected text  
