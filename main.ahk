@@ -38,8 +38,8 @@ precise := True
 ^!f::formatSel("firstOnly")
 !s::formatSel("sentnCase")
 !t::formatSel("titleCase")
-!q::mPress(func("formatSel").bind("fixQuotes"), func("formatSel").bind("fixQuotes", 1))
-!n::mPress(func("formatSel").bind("fixNumber"), func("formatSel").bind("fixNumber", 1))
+!q::nPress(func("formatSel").bind("fixQuotes"), func("formatSel").bind("fixQuotes", 1))
+!n::nPress(func("formatSel").bind("fixNumber"), func("formatSel").bind("fixNumber", 1))
 
 ^{::wrapSel(123)
 $^[::wrapSel(91)
@@ -47,8 +47,8 @@ $^[::wrapSel(91)
 ^%::wrapSel(37)
 ^_::wrapSel(95)
 
-^+'::mPress(func("wrapSel").bind(34), func("wrapSel").bind(257))
-^'::mPress(func("wrapSel").bind(39), func("wrapSel").bind(258))
+^+'::nPress(func("wrapSel").bind(34), func("wrapSel").bind(257))
+^'::nPress(func("wrapSel").bind(39), func("wrapSel").bind(258))
 
 ; ^"::wrapSel(34)
 ; ^'::wrapSel(39)
@@ -333,7 +333,7 @@ endProcs() {
 
 ; Miscellaneous:
 
-mPress(pressHandlers*) {
+nPress(pressHandlers*) {
 	; Modified from: http://autohotkey.com/boards/viewtopic.php?t=40161
 	recurse:
 	keyPresses += 1
