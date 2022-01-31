@@ -356,7 +356,7 @@ stripHotkey(hk) {
 	return key1, ErrorLevel := (key2 ? "Down" : "Up")
 }
 
-checkToConnect(adapter, nType = "WLAN", url = "http://google.com") {
+checkToConnect(adapter, nType = "WLAN") {
 	if (!ping()) {
 		runwait, % comspec  " /c Netsh " nType " connect name=" adapter
 		soundPlay, %A_WinDir%\Media\Windows Balloon.wav
