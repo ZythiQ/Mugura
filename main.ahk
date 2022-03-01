@@ -61,7 +61,7 @@ $^[::wrapSel(91)
 ^XButton1::sendInput !{Esc}
 !Left::sendInput ^[
 !Right::sendInput ^]
-#c::checkToConnect("RIT")
+#`::checkToConnect("RIT")
 
 ^+!Home::reload
 ^+!Ins::suspend
@@ -358,7 +358,7 @@ stripHotkey(hk) {
 
 checkToConnect(adapter, nType = "WLAN") {
 	if (!ping()) {
-		runwait, % comspec  " /c Netsh " nType " connect name=" adapter
+		runwait, % comspec  " /c Netsh " nType " connect name=" adapter,, Hide
 		soundPlay, %A_WinDir%\Media\Windows Balloon.wav
 	} else
 		soundPlay, %A_WinDir%\Media\Windows Background.wav
