@@ -13,6 +13,7 @@ SendMode Input
 
 fileRead, excludeCase, resources\titleCaseExclude.txt
 
+global reposDir = "E:\Downloads\Classwork\GCIS-124"
 chromePath := "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
 wraps := {40:"()", 60:"<>", 91:"[]", 95:"____", 123:"{}"}
 smartQuotes := False
@@ -31,7 +32,7 @@ precise := True
 ^w::wrapSel("repeat")
 !w::wrapSel("remove")
 
-; !p::formatSel("pasteTest")
+!p::cloneRepo()
 !u::formatSel("upperCase")
 !l::formatSel("lowerCase")
 !f::formatSel("firstCase")
@@ -251,6 +252,7 @@ getPath(returnsURL=False) {
         clipboard := sURL
 		soundPlay, %A_WinDir%\Media\Windows Balloon.wav
 		return
+
 	} else if sClass in % ModernBrowsers "," LegacyBrowsers
         msgBox, % "The URL couldn't be determined (" sClass ")"
     else
@@ -368,4 +370,20 @@ ping(host="8.8.8.8") { ; default pings Google DNS
 	colPings := ComObjGet("winmgmts:").ExecQuery("Select * From Win32_PingStatus where Address = '" host "'")._NewEnum
 	while colPings[objStatus]
 		return oS := (objStatus.StatusCode = "") || (objStatus.StatusCode != 0) ? 0 : 1
+}
+
+cloneRepo() {
+	link := getPath(True)
+
+	if (regExMatch(link, "^http://github.com/.+/\K.+$", name)) {
+			FileSelectFolder, repoDir, %reposDir%
+
+			if (repoDir && !FileExist(repoDir . "\" . name)) {
+				run, %comspec% /c cd /d %repoDir% & git clone %link%,, Hide
+				soundPlay, %A_WinDir%\Media\Windows Balloon.wav
+				return
+			}
+	}
+	
+	soundPlay, %A_WinDir%\Media\Windows Background.wav
 }
