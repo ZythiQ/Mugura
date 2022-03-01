@@ -27,12 +27,12 @@ precise := True
 ^+g::searchSel()
 ^+z::swapSel()
 !c::countSel()
+!g::cloneRepo()
 
 ^+w::wrapSel("select")
 ^w::wrapSel("repeat")
 !w::wrapSel("remove")
 
-!p::cloneRepo()
 !u::formatSel("upperCase")
 !l::formatSel("lowerCase")
 !f::formatSel("firstCase")
