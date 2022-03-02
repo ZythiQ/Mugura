@@ -376,13 +376,15 @@ cloneRepo() {
 	link := getPath(True)
 
 	if (regExMatch(link, "^http://github.com/.+/\K.+$", name)) {
-			FileSelectFolder, repoDir, %reposDir%
+			FileSelectFolder, repoDir, *%reposDir%
 
-			if (repoDir && !FileExist(repoDir . "\" . name)) {
+			if (repoDir && !FileExist(repoDir . "\" . name))
 				run, %comspec% /c cd /d %repoDir% & git clone %link%,, Hide
-				soundPlay, %A_WinDir%\Media\Windows Balloon.wav
-				return
-			}
+			else
+				run, %comspec% /c cd /d %repoDir%\%name% & code -n .,, Hide
+
+			soundPlay, %A_WinDir%\Media\Windows Balloon.wav
+			return
 	}
 	
 	soundPlay, %A_WinDir%\Media\Windows Background.wav
