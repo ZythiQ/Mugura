@@ -30,5 +30,5 @@
 <kbd>Ctrl</kbd> + <kbd>Shft</kbd> + <kbd>k</kbd> Quickly embeds selected text if a valid link is in the clipboard  
 
 **Miscellaneous:**  
-<kbd>Win</kbd> + <kbd>c</kbd> Checks internet connection and connects if offline  
+<kbd>Win</kbd> + <kbd>`</kbd> Checks internet connection and connects if offline  
 <kbd>Alt</kbd> + <kbd>c</kbd> Displays word, alphanumeric, character, and characters w/o spaces counts of the selected text  
